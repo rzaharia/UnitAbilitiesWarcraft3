@@ -1,0 +1,6 @@
+---
+projectName: UnitAbilitiesWarcraft3
+buildMapData:
+  name: MyMapName
+  fileName: MyMapFile
+  author: rzaharia
