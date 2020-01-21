@@ -1,0 +1,24 @@
+package ConflagrationConstants
+
+import public Assets
+
+@configurable public let BASE_DAMAGE = 50.
+@configurable public let BONUS_DAMAGE = 50.
+
+@configurable public let SPELL_EFFECT_PATH = Units.infernalBirth
+@configurable public let BONUS_EFFECT_PATH = Abilities.fireBallMissile
+@configurable public let SPELL_EFFECT_DURATION = .75
+@configurable public let SPELL_RADIUS = 256.
+
+@configurable public let SPELL_ICON = Icons.bTNBreathOfFire
+@configurable public let SPELL_NAME = "Conflagration"
+@configurable public let SPELL_TT_NORMAL = "Cast Conflagration"
+@configurable public let SPELL_TT_EXTENDED = "Conjures a firey explosion at the " +
+    "target, damaging nearby enemies and applying a buff, which will cause them to " +
+    "take more damage on succeeding hits of this spell."
+
+@configurable public let BUFF_DURATION = 7.5
+@configurable public let BUFF_EFFECT_PATH = Abilities.incinerateBuff
+
+@configurable public let BUFF_NAME = "Conflagrated"
+@configurable public let BUFF_TT = "This unit has weakness to fire"

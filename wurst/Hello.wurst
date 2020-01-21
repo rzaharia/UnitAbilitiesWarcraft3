@@ -1,9 +1,17 @@
 package Hello
 
+import ConflagrationObjects
+
 /* Hello and welcome to Wurst!
 This is just a demo package. 
 You can modify it to tests things out 
 and then later delete it and create your own, new packages.
 Enjoy WurstScript? Consider starring our repo https://github.com/wurstscript/WurstScript */ 
 init
-	print("Hello World")
+	let hero = GetUnitsOfPlayerAndTypeId( players[0], UnitIds.bloodmage ).next()
+	hero.addAbility(SPELL_ID)
+	//let player p = Player(0);
+	//let u = CreateUnit( p, 'Hblm', -126.6, 102.2, 228.600)
+	//u.
+
+	
