@@ -1,15 +1,25 @@
 package Hello
 
-import ConflagrationObjects
+import Assets
+import SpellList
+
+import InitUnits
+import WinTrigger
 
 /* Hello and welcome to Wurst!
 This is just a demo package. 
 You can modify it to tests things out 
 and then later delete it and create your own, new packages.
-Enjoy WurstScript? Consider starring our repo https://github.com/wurstscript/WurstScript */ 
+Enjoy WurstScript? Consider starring o
+ur repo https://github.com/wurstscript/WurstScript */ 
 init
-	let hero = GetUnitsOfPlayerAndTypeId( players[0], UnitIds.bloodmage ).next()
-	hero.addAbility(SPELL_ID)
+	let hero = CreateUnit( players[0], UnitIds.archimonde, -126.6, 102.2, 228.600)
+	//let hero = GetUnitsOfPlayerAndTypeId( players[0], UnitIds.lichking).next()
+	hero.addAbility(CONFLAGRATION_SPELL_ID_)
+	initMyUnits()
+	registerWinCondition()
+	
+
 	//let player p = Player(0);
 	//let u = CreateUnit( p, 'Hblm', -126.6, 102.2, 228.600)
 	//u.

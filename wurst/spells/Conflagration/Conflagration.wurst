@@ -9,7 +9,7 @@ import ClosureEvents
 let buffId = BUFF_OBJ.abilId
 let buffMap = new HashMap<unit, CallbackSingle>()
 init
-    EventListener.onPointCast(SPELL_ID) (unit caster, vec2 tpos) ->
+    EventListener.onPointCast(CONFLAGRATION_SPELL_ID) (unit caster, vec2 tpos) ->
         flashEffect(SPELL_EFFECT_PATH, tpos)
         doAfter(SPELL_EFFECT_DURATION) -> 
             forUnitsInRange(tpos, SPELL_RADIUS) (unit u) ->

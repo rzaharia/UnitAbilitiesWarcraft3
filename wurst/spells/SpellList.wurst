@@ -1,0 +1,5 @@
+package SpellList
+
+import ConflagrationObjects
+
+public let CONFLAGRATION_SPELL_ID_ = CONFLAGRATION_SPELL_ID

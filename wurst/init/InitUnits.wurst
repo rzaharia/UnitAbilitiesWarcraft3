@@ -1,0 +1,18 @@
+package InitUnits
+
+import ClosureTimers
+import UnitIds
+
+public let INITUNITS_NUMBER_OF_HOSTYLE_UNITS_TO_CREATE = 10
+public let INITUNITS_NUMBER_OF_PLAYER2_UNITS_TO_CREATE = 2
+public let INITUNITS_CREATED_HOSTYLE_UNIT_TYPE = UnitIds.bandit 
+public let INITUNITS_CREATED_PASSIVE_UNIT_TYPE = UnitIds.penguin
+
+public function initMyUnits()
+    doAfter(4) -> 
+        for i = 0 to INITUNITS_NUMBER_OF_HOSTYLE_UNITS_TO_CREATE 
+            CreateUnit( players[PLAYER_NEUTRAL_AGGRESSIVE], INITUNITS_CREATED_HOSTYLE_UNIT_TYPE, 781, 916, 228.600)
+            ..issuePointOrder("attack", vec2(-126.6, 102.2))
+
+        for i = 0 to INITUNITS_NUMBER_OF_PLAYER2_UNITS_TO_CREATE
+            CreateUnit( players[1], INITUNITS_CREATED_PASSIVE_UNIT_TYPE, -126.6, 102.2, 228.600)
