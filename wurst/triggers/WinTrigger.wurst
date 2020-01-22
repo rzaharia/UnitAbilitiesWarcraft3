@@ -4,7 +4,7 @@ import InitUnits
 //import ClosureTimers
 
 //simport 
-int currentHostileCount = INITUNITS_NUMBER_OF_HOSTYLE_UNITS_TO_CREATE //when it reaches 0 you won
+int currentHostileCount = INITUNITS_NUMBER_OF_HOSTILE_UNITS_TO_CREATE //when it reaches 0 you won
 int passiveUnits = INITUNITS_NUMBER_OF_PLAYER2_UNITS_TO_CREATE
 
 
