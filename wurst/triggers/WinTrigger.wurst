@@ -3,22 +3,23 @@ package WinTrigger
 import InitUnits
 //import ClosureTimers
 
-//simport 
+//import 
 int currentHostileCount = INITUNITS_NUMBER_OF_HOSTILE_UNITS_TO_CREATE //when it reaches 0 you won
 int passiveUnits = INITUNITS_NUMBER_OF_PLAYER2_UNITS_TO_CREATE
 
 
 function checkWinAction()
-    currentHostileCount -=1
     if (currentHostileCount ==0)
         print("You won!")
+    currentHostileCount -=1
 
 function checkLoseAction()
-    passiveUnits -=1
     if (passiveUnits ==0)
         print("you lost!")
+    passiveUnits -=1
 
 
 public function registerWinCondition()
-    CreateTrigger()..registerPlayerUnitEvent(players[PLAYER_NEUTRAL_AGGRESSIVE], EVENT_PLAYER_UNIT_DEATH,null)..addAction(() -> checkWinAction())
-    CreateTrigger()..registerPlayerUnitEvent(players[1], EVENT_PLAYER_UNIT_DEATH,null)..addAction(() -> checkLoseAction())
+    CreateTrigger()..registerPlayerUnitEvent(players[PLAYER_NEUTRAL_AGGRESSIVE], EVENT_PLAYER_UNIT_DEATH,null)
+    ..addAction(function checkWinAction)
+    CreateTrigger()..registerPlayerUnitEvent(players[1], EVENT_PLAYER_UNIT_DEATH,null)..addAction(function checkLoseAction)
