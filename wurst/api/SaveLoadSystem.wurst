@@ -1,0 +1,72 @@
+package SaveLoadSystem
+import SaveLoadData
+
+//TODO: needs to be templatisated 
+public function loadMyPlayerData()
+    string foundHeroCode = ""
+    players[0].loadData("RZA.pld") (status, data) ->
+        if status == LoadStatus.SUCCESS
+            foundHeroCode =  data.readChunk()
+            Log.info("Loaded: " + foundHeroCode)
+            spawnPlayerHeroFromPlayerData(foundHeroCode)
+        else
+            print("Failed to load data!")
+            
+    //found some interesting functions -> LoadInteger, LoadString in natives
+
+function spawnPlayerHeroFromPlayerData(string playerData)
+    string editablePlayerData = playerData
+    string unitIdString = editablePlayerData.substring(0, editablePlayerData.indexOf("#"))
+    editablePlayerData = editablePlayerData.ltrim(unitIdString+"#")
+    string unitXString = editablePlayerData.substring(0, editablePlayerData.indexOf("#"))
+    editablePlayerData = editablePlayerData.ltrim(unitXString+"#")
+    string unitYString = editablePlayerData.substring(0, editablePlayerData.indexOf("#"))
+    editablePlayerData = editablePlayerData.ltrim(unitYString+"#")
+    string faceString = editablePlayerData
+
+    print("id: "+ unitIdString)
+    print("x: "+ unitXString)
+    print("y: "+ unitYString)
+    print("face: "+ faceString)
+    
+    CreateUnit( players[0], unitIdString.toInt(), unitXString.toReal(), unitYString.toReal(), faceString.toReal())
+    
+    
+
+
+//TODO: needs to be templatisated 
+//TODO: needs player name -> hero level, hero items
+public function saveMyPLayerData(unit hero)
+    //let hero = CreateUnit( players[0], UnitIds.archimonde, -126.6, 102.2, 228.600)
+    integer unitId = GetUnitTypeId(hero)
+    bool isHero = IsHeroUnitId(unitId)
+    if not isHero
+        print("Selected unit is not hero!")
+        return
+    
+    //location unitLocation = GetUnitLoc(hero)
+    real unitX = GetUnitX(hero)
+    real unitY = GetUnitY(hero)
+    real unitFace = GetUnitFacing(hero)
+
+    let heroCode = new ChunkedString(4)
+    heroCode.append(unitId.toString())
+    heroCode.append("#"+unitX.toString())
+    heroCode.append("#"+unitY.toString())
+    heroCode.append("#"+unitFace.toString())
+
+    new File("RZA.pld")..write(players[0], heroCode.getUnsafeString())..close()
+
+    /*found some usefull functions
+    UnitAddItemToSlotById
+
+
+    GetUnitAbilityLevel	
+    GetHeroSkillPoints
+
+    SetHeroLevel
+    GetHeroLevel
+
+    UnitAddAbility
+
+    */

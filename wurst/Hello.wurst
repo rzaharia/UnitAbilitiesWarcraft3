@@ -5,6 +5,8 @@ import SpellList
 
 import InitUnits
 import WinTrigger
+import ClosureKeyPresses
+import SaveLoadSystem
 
 /* Hello and welcome to Wurst!
 This is just a demo package. 
@@ -17,7 +19,27 @@ init
 	//let hero = GetUnitsOfPlayerAndTypeId( players[0], UnitIds.lichking).next()
 	hero.addAbility(CONFLAGRATION_SPELL_ID_)
 	initMyUnits()
-	registerWinCondition()
+	//registerWinCondition()
+
+	bool hasHero = true
+	//Dummy event for testing
+	onKeyPress(OSKEY_ESCAPE) -> 
+		print("A player pressed ESCAPE")
+		if hasHero
+			Log.info("hasHero TRUE")
+			if hero != null
+				saveMyPLayerData(hero)
+				print("Saved and removed player hero")
+				hero.remove()
+			else
+				print("hero is NULL")
+		else
+			Log.info("hasHero FALSE")
+			print("Restoring player hero")	
+			loadMyPlayerData()
+		
+		hasHero = not hasHero
+		
 	
 
 	//let player p = Player(0);
