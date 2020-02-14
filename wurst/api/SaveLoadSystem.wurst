@@ -1,7 +1,7 @@
 package SaveLoadSystem
 import SaveLoadData
 
-//TODO: needs to be templatisated 
+//TODO: needs templates
 public function loadMyPlayerData()
     string foundHeroCode = ""
     players[0].loadData("RZA.pld") (status, data) ->
